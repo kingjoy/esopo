@@ -1,0 +1,4 @@
+file = <<~'EOM'
+    # paste here you text
+    # delete this commentaries
+EOM
