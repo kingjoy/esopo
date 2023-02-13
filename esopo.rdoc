@@ -1,0 +1,5 @@
+= esopo
+
+Generate this with
+    esopo _doc
+After you have described your command line interface

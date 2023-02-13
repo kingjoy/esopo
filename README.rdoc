@@ -1,0 +1,6 @@
+= esopo
+
+Describe your project here
+
+:include:esopo.rdoc
+

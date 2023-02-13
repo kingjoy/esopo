@@ -1,0 +1,30 @@
+PATH
+  remote: .
+  specs:
+    esopo (1.0.0)
+      gli (>= 1.21.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    gli (2.21.0)
+    minitest (5.17.0)
+    psych (5.1.0)
+      stringio
+    rake (13.0.6)
+    rdoc (6.5.0)
+      psych (>= 4.0.0)
+    stringio (3.0.5)
+
+PLATFORMS
+  arm64-darwin-21
+  arm64-darwin-22
+
+DEPENDENCIES
+  esopo!
+  minitest (>= 4.14)
+  rake (>= 9.9.2)
+  rdoc (>= 4.3)
+
+BUNDLED WITH
+   2.3.3
