@@ -10,7 +10,7 @@ f.write("file = <<~'EOM'
     # paste here you text and delete this comm
 EOM")
                 end
-            end 
+            end
         end
     end
 end
