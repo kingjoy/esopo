@@ -1,0 +1,3 @@
+file = <<~'EOM'
+    # paste here you text and delete this comm
+EOM

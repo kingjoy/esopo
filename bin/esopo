@@ -2,6 +2,7 @@
 require 'gli'
 require 'esopo'
 require 'esopo/generator'
+require 'esopo/creator'
 class App
   extend GLI::App
 
@@ -25,7 +26,8 @@ class App
     arguments :loose
     c.default_desc 'list both tasks and contexts'
     c.action do |global,options,args|
-      File::new("./doc/#{args.first}.txt", "w")
+    Esopo::CreateFiles.create_doc(args)
+    
     end
   end
 
