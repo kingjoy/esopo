@@ -1,8 +1,7 @@
 #!/usr/bin/env ruby
 require 'gli'
 require 'esopo'
-require 'esopo/generator'
-require 'esopo/creator'
+
 class App
   extend GLI::App
 
@@ -30,26 +29,41 @@ class App
       end
   end
 
-  pre do |global,command,options,args|
-    # Pre logic here
-    # Return true to proceed; false to abort and not call the
-    # chosen command
-    # Use skips_pre before a command to skip this block
-    # on that command only
-    true
+ desc 'open file for edit arguments'
+ command :open do |c|
+  arguments :loose
+  c.action do |global,options,args|
+    Esopo::CreateFiles.open_file(args)
+    end
+  end
+  desc 'run result from data into terminal'
+  command :run do |c|
+    arguments :loose
+    c.action do |global,options,args|
+      Esopo::Output.run(args.first)
+      end
   end
 
-  post do |global,command,options,args|
-    # Post logic here
-    # Use skips_post before a command to skip this
-    # block on that command only
-  end
+  # pre do |global,command,options,args|
+  #   # Pre logic here
+  #   # Return true to proceed; false to abort and not call the
+  #   # chosen command
+  #   # Use skips_pre before a command to skip this block
+  #   # on that command only
+  #   true
+  # end
 
-  on_error do |exception|
-    # Error logic here
-    # return false to skip default error handling
-    true
-  end
+  # post do |global,command,options,args|
+  #   # Post logic here
+  #   # Use skips_post before a command to skip this
+  #   # block on that command only
+  # end
+
+  # on_error do |exception|
+  #   # Error logic here
+  #   # return false to skip default error handling
+  #   true
+  # end
 end
 
 exit App.run(ARGV)
