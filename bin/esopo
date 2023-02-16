@@ -25,7 +25,7 @@ class App
     arguments :loose
       c.default_desc 'list both tasks and contexts'
       c.action do |global,options,args|
-        Esopo::CreateFiles.create_doc(args)
+        Esopo::CreateFiles.create_doc(args.first.concat)
       end
   end
 
