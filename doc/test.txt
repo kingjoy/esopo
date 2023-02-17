@@ -1,5 +1,0 @@
-file = <<-EOM
-    # paste here you text and delete this comm #{Esopo::ValuesGenerator.rand_uuid(4)}
-  %{rand_phone} and %{rand_uuid}
-
-EOM

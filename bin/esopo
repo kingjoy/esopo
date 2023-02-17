@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
+
 require 'gli'
 require 'esopo'
 
@@ -18,30 +20,37 @@ class App
   desc 'Describe some flag here'
   default_value 'the default'
   arg_name 'The name of the argument'
-  flag [:f,:flagname]
+  flag %i[f flagname]
 
-  desc 'create json file'
+  desc 'create file for add user data'
   command :create do |c|
     arguments :loose
-      c.default_desc 'list both tasks and contexts'
-      c.action do |global,options,args|
-        Esopo::CreateFiles.create_doc(args.first.concat)
-      end
+    c.default_desc 'list both tasks and contexts'
+    c.action do |global, options, args|
+      Esopo::CreateFiles.create_doc(args.first.concat)
+    end
   end
 
- desc 'open file for edit arguments'
- command :open do |c|
-  arguments :loose
-  c.action do |global,options,args|
-    Esopo::CreateFiles.open_file(args)
+  desc 'open file for edit arguments'
+  command :open do |c|
+    arguments :loose
+    c.action do |global, options, args|
+      Esopo::CreateFiles.open_file(args)
     end
   end
   desc 'run result from data into terminal'
   command :run do |c|
     arguments :loose
-    c.action do |global,options,args|
+    c.action do |global, options, args|
       Esopo::Output.run(args.first)
-      end
+    end
+  end
+  desc 'delete file'
+  command :delete do |c|
+    arguments :loose
+    c.action do |global, options, args|
+      Esopo::DeleteFile.delete_file(args.first)
+    end
   end
 
   # pre do |global,command,options,args|
