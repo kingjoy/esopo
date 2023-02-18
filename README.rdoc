@@ -14,14 +14,15 @@ The following commands are provided for interpolation:\n
 ##Example
 
  I suggest creating a file, for this we will write a simple command.
-
+ 
+```
 esopo create example_command
 ```
 
 A txt file is created inside the project and opened in your notepad in order to write data into it for further interpolation
 let's insert the following data into our file. The data was taken from the site https://json-generator.com
 
-
+```json
 '{
     "guid": "%{get_uuid}",
     "isActive": true,
@@ -48,6 +49,7 @@ I list the variables that we inserted for further interpolation
 
 Let's call the run command
 
+```ruby
 esopo run my_age example_command
 # esopo — our cli
 # run — run
@@ -57,12 +59,14 @@ esopo run my_age example_command
 
 We get the next result
 
+```json
 '{"guid":"491b63e5-9a84-4f72-75c7-38fd35bfa6bf","isActive":true,"balance":"$2,748.23","age":"my_age","eyeColor":"green","name":"Sondra Chaney","gender":"female","company":"ZUVY","email":"sondrachaney@zuvy.com","phone":"+72373248105","registered":"2023-02-18T18:50:29Z","latitude":23.141088,"longitude":6.578343}'
 ```
 
 ##Installation
 To install, you need the following dependency versions
 
+```ruby
 ruby 3.1.0
 bundle 2.3.3
 minitest (>= 4.14)
