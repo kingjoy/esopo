@@ -7,8 +7,15 @@ require 'esopo'
 class App
   extend GLI::App
 
-  program_desc 'Interpolation into shell commands'
-
+  program_desc 'Interpolation data and output into terminal'
+  program_long_desc "This command line application is designed to store text data for the purpose of interpolation and further use in the terminal
+  You can create/open/delete and run files.
+  The following commands are provided for interpolation:\n
+  %{get_uuid} - returns UUIDv4\n
+  %{get_phone} - returns the phone number (starts with +7)\n
+  %{get_number} - returns a random number with a length of 7 numbers\n
+  %{get_timestamp} - returns the current timestamp in iso8601 format\n
+  %{get_variable} - user variable required in case of dynamic variable. For example paste URL, list of commands"
   version Esopo::VERSION
 
   subcommand_option_handling :normal
@@ -17,42 +24,52 @@ class App
   # desc 'Describe some switch here'
   # switch [:s,:switch]
 
-  desc 'Describe some flag here'
-  default_value 'the default'
-  arg_name 'The name of the argument'
-  flag %i[f flagname]
-
-  desc 'create file for add user data'
+  # desc 'Flag inserts user variable'
+  # default_value 'null'
+  # arg_name 'user_variable'
+  # flag [:d, :dynamic_variable] do |c|
+  #   arguments :loose
+  #   c.action do |global, options, args|
+  #     Esopo::Output.recorder(args.first.concat)
+  #   end
+  # end
+  desc 'Command to create a text file'
+  long_desc 'This command creates a file in the txt format into which you later go to insert data and, if necessary, variables for interpolation, 
+  only need to send the name, no file type'
   command :create do |c|
+    c.default_desc 'Command to create a text file'
     arguments :loose
-    c.default_desc 'list both tasks and contexts'
     c.action do |global, options, args|
       Esopo::CreateFiles.create_doc(args.first.concat)
     end
   end
 
-  desc 'open file for edit arguments'
+  desc 'Open file for edit arguments'
+  long_desc 'The command is intended for opening a text file in order to edit the file, insert variables, etc.'
   command :open do |c|
     arguments :loose
     c.action do |global, options, args|
-      Esopo::CreateFiles.open_file(args)
+      Esopo::CreateFiles.open_file(args.first.concat)
     end
   end
-  desc 'run result from data into terminal'
+  desc 'Run result from data into terminal'
+  long_desc 'The main command is designed to display the interpolated result in the terminal.
+   If you need a dynamic result that depends on the input, then you must first enter the variable, and only then the file name'
   command :run do |c|
-    arguments :loose
+    arguments :norman
     c.action do |global, options, args|
-      Esopo::Output.run(args.first)
+      Esopo::Output.recorder(args.first.concat) if args.length > 1
+      Esopo::Output.run(args.last)
     end
   end
-  desc 'delete file'
+  desc 'The command is for deleting a file'
+  long_desc 'The command deletes a file, if you need to delete a file, then you need to write the file name, without the type of this file'
   command :delete do |c|
     arguments :loose
     c.action do |global, options, args|
       Esopo::DeleteFile.delete_file(args.first)
     end
   end
-
   # pre do |global,command,options,args|
   #   # Pre logic here
   #   # Return true to proceed; false to abort and not call the
@@ -61,13 +78,11 @@ class App
   #   # on that command only
   #   true
   # end
-
   # post do |global,command,options,args|
   #   # Post logic here
   #   # Use skips_post before a command to skip this
   #   # block on that command only
   # end
-
   # on_error do |exception|
   #   # Error logic here
   #   # return false to skip default error handling
