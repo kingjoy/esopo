@@ -1,6 +1,70 @@
 = esopo
+# Esopo
 
-Describe your project here
+## Title
+    This command line application is designed to store text data for the purpose of returns us an interpolated one-line text and further use in the terminal.
+  You can create/open/delete and run files.
+  The following commands are provided for interpolation:\n
+  %{get_uuid} - returns UUIDv4\n
+  %{get_phone} - returns the phone number (starts with +7)\n
+  %{get_number} - returns a random number with a length of 7 numbers\n
+  %{get_timestamp} - returns the current timestamp in iso8601 format\n
+  %{get_variable} - user variable required in case of dynamic variable. For example paste URL, list of commands.
 
-:include:esopo.rdoc
+##Example
+
+    I suggest creating a file, for this we will write a simple command.
+```
+esopo create example_command
+```
+    A txt file is created inside the project and opened in your notepad in order to write data into it for further interpolation
+let's insert the following data into our file. The data was taken from the site https://json-generator.com
+```
+'{
+    "guid": "%{get_uuid}",
+    "isActive": true,
+    "balance": "$2,748.23",
+    "age": "%{get_variable}",
+    "eyeColor": "green",
+    "name": "Sondra Chaney",
+    "gender": "female",
+    "company": "%{get_number}",
+    "email": "sondrachaney@zuvy.com",
+    "phone": "%{get_phone}",
+    "registered": "%{get_timestamp}",
+    "latitude": 23.141088,
+    "longitude": 6.578343
+}'
+```
+I list the variables that we inserted for further interpolation
+- %{get_uuid} — This command will return UUIDv4 format
+- %{get_variable} — The user variable serves us to insert user data. 
+By default, it is equal to nil, it will return only what the user specifies with the run command
+- %{get_number} — This command will return us the generated number with a length of 7 characters
+- %{get_phone} — This command will return us the generated phone number, the number will start with +7
+- %{get_timestamp} — This command will return us the utc date and time in iso8601 format
+
+Let's call the run command
+```
+esopo run my_age example_command
+# esopo — our cli
+# run — run
+# command my_age — user data for the variable %{get_variable}
+# example_file — our file that needs to be outputted
+```
+We get the next result
+```
+'{"guid":"491b63e5-9a84-4f72-75c7-38fd35bfa6bf","isActive":true,"balance":"$2,748.23","age":"my_age","eyeColor":"green","name":"Sondra Chaney","gender":"female","company":"ZUVY","email":"sondrachaney@zuvy.com","phone":"+72373248105","registered":"2023-02-18T18:50:29Z","latitude":23.141088,"longitude":6.578343}'
+```
+##Installation
+To install, you need the following dependency versions
+```
+ruby 3.1.0
+bundle 2.3.3
+minitest (>= 4.14)
+rake (>= 9.9.2)
+rdoc (>= 4.3)
+```
+Clone this repository to the required folder.
+To use it, you need to register the bundle exec bin/esopo command while inside the repository
 
