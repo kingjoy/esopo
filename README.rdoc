@@ -35,11 +35,11 @@ let's insert the following data into our file. The data was taken from the site 
     "latitude": 23.141088,
     "longitude": 6.578343
 }'
+
 ```
-I list the variables that we inserted for further interpolation
+    I list the variables that we inserted for further interpolation
 - %{get_uuid} — This command will return UUIDv4 format
-- %{get_variable} — The user variable serves us to insert user data. 
-By default, it is equal to nil, it will return only what the user specifies with the run command
+- %{get_variable} — The user variable serves us to insert user data. By default, it is equal to nil, it will return only what the user specifies with the run command
 - %{get_number} — This command will return us the generated number with a length of 7 characters
 - %{get_phone} — This command will return us the generated phone number, the number will start with +7
 - %{get_timestamp} — This command will return us the utc date and time in iso8601 format
