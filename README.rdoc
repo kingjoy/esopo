@@ -35,8 +35,7 @@ let's insert the following data into our file. The data was taken from the site 
     "registered": "%{get_timestamp}",
     "latitude": 23.141088,
     "longitude": 6.578343
-}'
-```
+}'```
 
 I list the variables that we inserted for further interpolation
 - %{get_uuid} — This command will return UUIDv4 format
