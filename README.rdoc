@@ -2,14 +2,14 @@
 # Esopo
 
 ## Title
-    This command line application is designed to store text data for the purpose of returns us an interpolated one-line text and further use in the terminal.
-  You can create/open/delete and run files.
-  The following commands are provided for interpolation:\n
-  %{get_uuid} - returns UUIDv4\n
-  %{get_phone} - returns the phone number (starts with +7)\n
-  %{get_number} - returns a random number with a length of 7 numbers\n
-  %{get_timestamp} - returns the current timestamp in iso8601 format\n
-  %{get_variable} - user variable required in case of dynamic variable. For example paste URL, list of commands.
+This command line application is designed to store text data for the purpose of returns us an interpolated one-line text and further use in the terminal.
+You can create/open/delete and run files.
+The following commands are provided for interpolation:\n
+%{get_uuid} - returns UUIDv4\n
+%{get_phone} - returns the phone number (starts with +7)\n
+%{get_number} - returns a random number with a length of 7 numbers\n
+%{get_timestamp} - returns the current timestamp in iso8601 format\n
+%{get_variable} - user variable required in case of dynamic variable. For example paste URL, list of commands.
 
 ##Example
 
@@ -18,7 +18,7 @@
 esopo create example_command
 ```
 
-    A txt file is created inside the project and opened in your notepad in order to write data into it for further interpolation
+A txt file is created inside the project and opened in your notepad in order to write data into it for further interpolation
 let's insert the following data into our file. The data was taken from the site https://json-generator.com
 ```
 '{
@@ -35,7 +35,8 @@ let's insert the following data into our file. The data was taken from the site 
     "registered": "%{get_timestamp}",
     "latitude": 23.141088,
     "longitude": 6.578343
-}'```
+}'
+```
 
 I list the variables that we inserted for further interpolation
 - %{get_uuid} — This command will return UUIDv4 format
