@@ -18,6 +18,10 @@ module Esopo
         number_imprint = 'xxxxxxx'
         reducer(number_imprint, 9, 10)
       end
+      def current_timestamp
+        require 'time'
+        Time.now.utc.iso8601
+      end
 
       private
 
