@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    esopo (1.2.1)
+    esopo (2.1.2)
       gli (>= 2.21.0)
 
 GEM
