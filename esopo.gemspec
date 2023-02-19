@@ -20,5 +20,5 @@ spec = Gem::Specification.new do |s|
   s.add_development_dependency('rspec', '~> 3.10')
   s.add_development_dependency('rake', '~> 9.9', '>= 9.9.2')
   s.add_development_dependency('rdoc', '~> 4.3')
-  s.add_runtime_dependency('gli', '~> 1.21', '>= 1.21.0')
+  s.add_runtime_dependency('gli', '~> 2.21', '>= 2.21.0')
 end
