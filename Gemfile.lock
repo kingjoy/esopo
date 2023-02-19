@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    esopo (1.1.0)
-      gli (>= 1.21.0)
+    esopo (1.2.1)
+      gli (>= 2.21.0)
 
 GEM
   remote: https://rubygems.org/
