@@ -1,4 +1,5 @@
-= Esopo
+= esopo
+# Esopo
 
 == Title
 This command line application is designed to store text data for the purpose of returns us an interpolated one-line text and further use in the terminal.
