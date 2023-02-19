@@ -4,7 +4,7 @@ module Esopo
   module CheckDecision
     class << self
       def user_decision(operation, user_arg)
-        p "file with name #{user_arg} #{operation == 'delete' ? 'does not' : false} exist in system"
+        p "file with name #{user_arg} #{'does not' if operation == 'delete'} exist in system"
         p "#{operation} the file #{user_arg}? y/n?"
         word = $stdin.gets.chomp
         return if word == 'n'
