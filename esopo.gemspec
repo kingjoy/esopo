@@ -18,7 +18,7 @@ spec = Gem::Specification.new do |s|
   s.bindir = 'bin'
   s.executables << 'esopo'
   s.add_development_dependency('rspec', '~> 3.10')
-  s.add_development_dependency('rake', '~> 9.9', '>= 9.9.2')
-  s.add_development_dependency('rdoc', '~> 4.3')
+  s.add_development_dependency('rake', '~> 13.0', '>= 13.0.6')
+  s.add_development_dependency('rdoc', '~> 6.5')
   s.add_runtime_dependency('gli', '~> 2.21', '>= 2.21.0')
 end

@@ -35,9 +35,9 @@ PLATFORMS
 
 DEPENDENCIES
   esopo!
-  rake (>= 9.9.2)
-  rdoc (>= 4.3)
-  rspec (>= 3.10)
+  rake (~> 13.0, >= 13.0.6)
+  rdoc (~> 6.5)
+  rspec (~> 3.10)
 
 BUNDLED WITH
    2.3.3
