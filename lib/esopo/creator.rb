@@ -1,16 +1,17 @@
 # frozen_string_literal: true
 
 module Esopo
+  $FILE_PATH = "#{File.dirname(File.realpath(__FILE__))}/files"
   module CreateFiles
     class << self
       # create doc wrom user input
       def create_doc(user_arg)
         # checker existing files in dir
-        if File.exist?("./files/#{user_arg}.txt")
+        if File.exist?("#{$FILE_PATH}/#{user_arg}.txt")
           Esopo::CheckDecision.user_decision('owerwrite', user_arg)
         else
-          File.new("./files/#{user_arg}.txt", 'w+')
-          File.open("./files/#{user_arg}.txt", 'w+') do |f|
+          File.new("#{$FILE_PATH}/#{user_arg}.txt", 'w+')
+          File.open("#{$FILE_PATH}/#{user_arg}.txt", 'w+') do |f|
             f.write("
                         # paste here you text and delete this comm
                     ")
@@ -20,7 +21,7 @@ module Esopo
       end
       # open files use term command
       def open_file(user_arg)
-        exec("open ./files/#{user_arg}.txt")
+        exec("open #{$FILE_PATH}/#{user_arg}.txt")
       end
     end
   end
