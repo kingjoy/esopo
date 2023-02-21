@@ -70,6 +70,13 @@ class App
       Esopo::DeleteFile.delete_file(args.first)
     end
   end
+  desc 'The command for view list of files'
+  command :list do |c|
+    arguments :loose
+    c.action do |global, options, args|
+      Esopo::FileList.show_files
+    end
+  end
   # pre do |global,command,options,args|
   #   # Pre logic here
   #   # Return true to proceed; false to abort and not call the
