@@ -20,4 +20,11 @@ module Esopo
       end
     end
   end
+  module FileList
+    class << self
+      def show_files
+        Dir.each_child("#{$FILE_PATH}") {|x| puts "#{x}" }
+      end
+    end
+  end
 end
