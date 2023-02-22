@@ -34,7 +34,7 @@ class App
   #   end
   # end
   desc 'Command to create a text file'
-  long_desc 'This command creates a file in the txt format into which you later go to insert data and, if necessary, variables for interpolation, 
+  long_desc 'This command creates a file in the txt format into which you later go to insert data and, if necessary, variables for interpolation,
   only need to send the name, no file type'
   command :create do |c|
     c.default_desc 'Command to create a text file'

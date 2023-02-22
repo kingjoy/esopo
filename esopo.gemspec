@@ -5,7 +5,7 @@ require File.join([File.dirname(__FILE__), 'lib', 'esopo', 'version.rb'])
 spec = Gem::Specification.new do |s|
   s.name = 'esopo'
   s.version = Esopo::VERSION
-  s.licenses    = ['Beerware']
+  s.licenses = ['Beerware']
   s.author = 'Danil Che'
   s.email = 'denchiric@mail.ru'
   s.homepage = 'https://github.com/kingjoy/esopo'
@@ -17,8 +17,8 @@ spec = Gem::Specification.new do |s|
   s.rdoc_options << '--title' << 'esopo' << '--main' << 'README.rdoc' << '-ri'
   s.bindir = 'bin'
   s.executables << 'esopo'
-  s.add_development_dependency('rspec', '~> 3.10')
   s.add_development_dependency('rake', '~> 13.0', '>= 13.0.6')
   s.add_development_dependency('rdoc', '~> 6.5')
+  s.add_development_dependency('rspec', '~> 3.10')
   s.add_runtime_dependency('gli', '~> 2.21', '>= 2.21.0')
 end
