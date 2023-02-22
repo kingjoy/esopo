@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'securerandom'
+require 'time'
 module Esopo
   module ValuesGenerator
     class << self
@@ -15,11 +16,11 @@ module Esopo
       end
 
       def rand_number
-        number_imprint = 'xxxxxxx'
+        number_imprint = "xxxxxxx"
         reducer(number_imprint, 9, 10)
       end
+
       def current_timestamp
-        require 'time'
         Time.now.utc.iso8601
       end
 
@@ -27,9 +28,9 @@ module Esopo
 
       def reducer(input_imprint, input_range, converter)
         init_value = Random.new
-        input_imprint.split('').map do |value|
+        input_imprint.split("").map do |value|
           value == 'x' ? value = init_value.rand(input_range).to_s(converter) : value
-        end.join('')
+        end.join("")
       end
     end
   end
