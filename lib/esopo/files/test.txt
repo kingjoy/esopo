@@ -6,7 +6,7 @@
   "eyeColor": "green",
   "name": "Sondra Chaney",
   "gender": "female",
-  "company": "ZUVY",
+  "company": "%{get_number}",
   "email": "sondrachaney@zuvy.com",
   "phone": "%{get_phone}",
   "registered": "%{get_timestamp}",
